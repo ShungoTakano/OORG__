@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>OBOG置き土産RPGゲーム</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- タイトル画面 -->
+        <div id="title-screen" class="screen active">
+            <div class="title-content">
+                <h1 class="title">OBOG置き土産</h1>
+                <h2 class="title-sub">RPGゲーム</h2>
+                <p class="subtitle">～23期 総務部OBOGプレゼンツ～</p>
+                <div class="notice-box">
+                    <p class="notice-title">ご注意</p>
+                    <ul class="notice-list">
+                        <li>ブラウザのキャッシュをONにしてください</li>
+                        <li>プレイ中はページを閉じないでください</li>
+                        <li>推奨環境: Chrome / Safari 最新版</li>
+                        <li>プレイ時間: 約20〜30分</li>
+                        <li>一昨日思いついたため，テストプレイはしていません</li>
+                        <li>致命的なバグがあればこっそり直しますので教えてください</li>
+                        <li>4年生の写真を使ってるので外部には公開しないでください</li>
+                        <li>1/5に削除します</li>
+                    </ul>
+                </div>
+                <div class="menu-buttons">
+                    <button id="start-btn" class="menu-btn">はじめから</button>
+                    <button id="continue-btn" class="menu-btn" style="display:none;">つづきから</button>
+                </div>
+                <p class="copyright">2025 総務部OBOG一同</p>
+            </div>
+        </div>
+
+        <!-- 名前入力画面 -->
+        <div id="name-screen" class="screen">
+            <div class="name-content">
+                <h2 class="name-title">あなたの名前を入力してください</h2>
+                <p class="name-desc">この名前でゲーム内に登場します</p>
+                <input type="text" id="player-name-input" class="name-input" placeholder="名前を入力" maxlength="10">
+                <div class="name-buttons">
+                    <button id="name-confirm-btn" class="menu-btn">決定</button>
+                    <button id="name-back-btn" class="menu-btn secondary">戻る</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- メインゲーム画面 -->
+        <div id="game-screen" class="screen">
+            <div id="background-layer"></div>
+            <div id="character-layer"></div>
+            <div id="message-window">
+                <div id="speaker-name"></div>
+                <div id="message-text"></div>
+                <div id="click-indicator">▼</div>
+            </div>
+            <div id="choice-container"></div>
+        </div>
+
+        <!-- ミニゲーム画面 -->
+        <div id="minigame-screen" class="screen">
+            <div id="minigame-container"></div>
+        </div>
+
+        <!-- 戦闘画面 -->
+        <div id="battle-screen" class="screen">
+            <div id="battle-container">
+                <div id="enemy-area">
+                    <div id="enemy-sprite"></div>
+                    <div id="enemy-dialogue"></div>
+                    <div id="enemy-hp-bar">
+                        <div id="enemy-hp-fill"></div>
+                    </div>
+                </div>
+                <div id="battle-box">
+                    <div id="player-heart">♥</div>
+                </div>
+                <div id="player-stats">
+                    <span id="player-hp-label">HP</span>
+                    <div id="player-hp-bar">
+                        <div id="player-hp-fill"></div>
+                    </div>
+                    <span id="player-hp-text">20/20</span>
+                </div>
+                <div id="battle-commands">
+                    <button class="battle-cmd" data-cmd="fight">たたかう</button>
+                    <button class="battle-cmd" data-cmd="retire">引退</button>
+                    <button class="battle-cmd" data-cmd="run">にげる</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- エンディング画面 -->
+        <div id="ending-screen" class="screen">
+            <div id="ending-content">
+                <h2 id="ending-title"></h2>
+                <div id="ending-text"></div>
+                <button id="ending-btn" class="menu-btn">タイトルへ</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/scenario.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/minigames/bushike.js"></script>
+    <script src="js/minigames/summer.js"></script>
+    <script src="js/minigames/tsudanuma.js"></script>
+    <script src="js/minigames/skisno.js"></script>
+    <script src="js/battle.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
